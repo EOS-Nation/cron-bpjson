@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: "cron-bpjson-eos",
+      name: "bpjson-eos",
       script: 'index.ts',
       env: {
         NODEOS_ENDPOINT: "https://api.eosn.io",
@@ -13,7 +13,19 @@ module.exports = {
       log_date_format : "YYYY-MM-DD HH:mm"
     },
     {
-      name: "cron-bpjson-jungle",
+      name: "bpjson-bos",
+      script: 'index.ts',
+      env: {
+        NODEOS_ENDPOINT: "https://bos.eosn.io",
+        BPJSON_ENDPOINT: "https://eosnation.io/bos.json",
+        PRODUCER_ACCOUNT_NAME: "bosnationftw",
+        PERMISSION: "ops",
+      },
+      autorestart: true,
+      log_date_format : "YYYY-MM-DD HH:mm"
+    },
+    {
+      name: "bpjson-jungle",
       script: 'index.ts',
       env: {
         NODEOS_ENDPOINT: "https://jungle.eosn.io",
