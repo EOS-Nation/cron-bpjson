@@ -1,23 +1,23 @@
 import { JsonRpc, Api } from 'eosjs';
 import { JsSignatureProvider } from 'eosjs/dist/eosjs-jssig';
 import * as fetch from "isomorphic-fetch";
-import { TextEncoder, TextDecoder } from 'util';
 import * as dotenv from "dotenv"
 import { Authorization } from "./interfaces";
+const { TextEncoder, TextDecoder } = require('util');
 
 dotenv.config();
 
 if (!process.env.NODEOS_ENDPOINT) throw new Error("[NODEOS_ENDPOINT] is required in .env");
 if (!process.env.PRIVATE_KEY) throw new Error("[PRIVATE_KEY] is required in .env");
-if (!process.env.CRON_TIME) throw new Error("[CRON_TIME] is required in .env");
 if (!process.env.PRODUCER_ACCOUNT_NAME) throw new Error("[PRODUCER_ACCOUNT_NAME] is required in .env");
 if (!process.env.BPJSON_ENDPOINT) throw new Error("[BPJSON_ENDPOINT] is required in .env");
 
 export const NODEOS_ENDPOINT: string = process.env.NODEOS_ENDPOINT;
 export const PRIVATE_KEY: string = process.env.PRIVATE_KEY;
-export const CRON_TIME: string = process.env.CRON_TIME;
 export const PRODUCER_ACCOUNT_NAME: string = process.env.PRODUCER_ACCOUNT_NAME;
 export const BPJSON_ENDPOINT: string = process.env.BPJSON_ENDPOINT;
+
+export const CRON_TIME: string = process.env.CRON_TIME || "0 0 * * *";
 export const PERMISSION: string = process.env.PERMISSION || "active";
 export const TIMEZONE: string = process.env.TIMEZONE || "America/Toronto";
 
