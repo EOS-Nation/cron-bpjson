@@ -18,7 +18,10 @@ export async function getProducerJson(owner: string) {
       lower_bound: owner,
       upper_bound: owner
     })
-    if (response.rows.length === 0) throw new Error("rows are missing");
+    if (response.rows.length === 0) {
+        console.error("rows are missing");
+        return null;
+    }
     return JSON.parse(response.rows[0].json);
 }
 

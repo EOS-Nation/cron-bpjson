@@ -18,9 +18,14 @@ async function main() {
 
   // Check if on-chain is different from website
   const producerjson = await getProducerJson(PRODUCER_ACCOUNT_NAME);
-  console.log("comparing hashes", createHash(bpjson), createHash(producerjson));
-  if (createHash(bpjson) === createHash(producerjson)) {
-    throw new Error("[producerjson] & [bp.json] hashes are the same, nothing to update");
+
+  if (producerjson) {
+    console.log("comparing hashes", createHash(bpjson), createHash(producerjson));
+    if (createHash(bpjson) === createHash(producerjson)) {
+      throw new Error("[producerjson] & [bp.json] hashes are the same, nothing to update");
+    }
+  } else {
+    console.log('first time publishing');
   }
 
   // Push actions
