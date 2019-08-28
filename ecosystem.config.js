@@ -37,7 +37,7 @@ module.exports = {
       log_date_format : "YYYY-MM-DD HH:mm"
     },
     {
-      name: "cron-bpjson-kylin",
+      name: "bpjson-kylin",
       script: 'index.ts',
       env: {
         NODEOS_ENDPOINT: "https://kylin.eosn.io",
@@ -49,7 +49,7 @@ module.exports = {
       log_date_format : "YYYY-MM-DD HH:mm"
     },
     {
-      name: "cron-bpjson-wax",
+      name: "bpjson-wax",
       script: 'index.ts',
       env: {
         NODEOS_ENDPOINT: "https://wax.eosn.io",
