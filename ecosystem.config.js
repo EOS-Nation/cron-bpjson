@@ -47,6 +47,18 @@ module.exports = {
       },
       autorestart: true,
       log_date_format : "YYYY-MM-DD HH:mm"
+    },
+    {
+      name: "cron-bpjson-wax",
+      script: 'index.ts',
+      env: {
+        NODEOS_ENDPOINT: "https://wax.eosn.io",
+        BPJSON_ENDPOINT: "https://eosnation.io/wax.json",
+        PRODUCER_ACCOUNT_NAME: "nation.wax",
+        PERMISSION: "ops",
+      },
+      autorestart: true,
+      log_date_format : "YYYY-MM-DD HH:mm"
     }
   ]
 };
