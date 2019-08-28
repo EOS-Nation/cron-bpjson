@@ -17,7 +17,7 @@ export const PRIVATE_KEY: string = process.env.PRIVATE_KEY;
 export const PRODUCER_ACCOUNT_NAME: string = process.env.PRODUCER_ACCOUNT_NAME;
 export const BPJSON_ENDPOINT: string = process.env.BPJSON_ENDPOINT;
 
-export const CRON_TIME: string = process.env.CRON_TIME || "0 * * * *";
+export const CRON_TIME: string = process.env.CRON_TIME || "*/10 * * * * *";
 export const PERMISSION: string = process.env.PERMISSION || "active";
 export const TIMEZONE: string = process.env.TIMEZONE || "America/Toronto";
 
