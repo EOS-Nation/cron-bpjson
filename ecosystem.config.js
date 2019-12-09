@@ -67,6 +67,7 @@ module.exports = {
         NODEOS_ENDPOINT: "https://meetone.eosn.io",
         BPJSON_ENDPOINT: "https://eosnation.io/meetone.json",
         PRODUCER_ACCOUNT_NAME: "eosnation.m",
+        PRODUCERJSON: "producers.m",
         PERMISSION: "ops",
       },
       autorestart: true,
