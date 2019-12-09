@@ -20,6 +20,7 @@ export const BPJSON_ENDPOINT: string = process.env.BPJSON_ENDPOINT;
 export const CRON_TIME: string = process.env.CRON_TIME || "*/10 * * * * *";
 export const PERMISSION: string = process.env.PERMISSION || "active";
 export const TIMEZONE: string = process.env.TIMEZONE || "America/Toronto";
+export const PRODUCERJSON: string = process.env.PRODUCERJSON || "producerjson";
 
 if (PRIVATE_KEY.includes("PRIVATE")) throw new Error("[PRIVATE_KEY] invalid key")
 

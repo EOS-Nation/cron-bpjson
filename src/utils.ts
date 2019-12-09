@@ -1,4 +1,4 @@
-import { rpc, api, authorization } from "./config";
+import { rpc, api, authorization, PRODUCERJSON } from "./config";
 import { RpcError } from "eosjs";
 import * as fetch from "isomorphic-fetch";
 import * as crypto from 'crypto';
@@ -12,8 +12,8 @@ export function createHash(json: any) {
 export async function getProducerJson(owner: string) {
     const response: GetTableRows<ProducerJson> = await rpc.get_table_rows({
       json: true,
-      code: "producerjson",
-      scope: "producerjson",
+      code: PRODUCERJSON,
+      scope: PRODUCERJSON,
       table: "producerjson",
       lower_bound: owner,
       upper_bound: owner
@@ -51,7 +51,7 @@ export async function transact(actions: Action[]) {
 
 export function setProducerJson(owner: string, json: Object): Action {
     return {
-        account: "producerjson",
+        account: PRODUCERJSON,
         name: "set",
         authorization,
         data: {

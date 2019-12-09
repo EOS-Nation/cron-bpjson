@@ -1,6 +1,6 @@
 import { CronJob } from "cron";
 import { getBpjson, getProducerJson, createHash, setProducerJson, transact } from "./src/utils";
-import { rpc, BPJSON_ENDPOINT, PRODUCER_ACCOUNT_NAME, TIMEZONE, CRON_TIME } from "./src/config";
+import { rpc, BPJSON_ENDPOINT, PRODUCER_ACCOUNT_NAME, TIMEZONE, CRON_TIME, PRODUCERJSON } from "./src/config";
 
 async function main() {
   // Fetch bp.json from website
@@ -22,7 +22,7 @@ async function main() {
   if (producerjson) {
     console.log("comparing hashes", createHash(bpjson), createHash(producerjson));
     if (createHash(bpjson) === createHash(producerjson)) {
-      throw new Error("[producerjson] & [bp.json] hashes are the same, nothing to update");
+      throw new Error(`[${PRODUCERJSON}] & [bp.json] hashes are the same, nothing to update`);
     }
   } else {
     console.log('first time publishing');

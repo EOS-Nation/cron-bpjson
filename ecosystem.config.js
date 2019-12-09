@@ -59,6 +59,18 @@ module.exports = {
       },
       autorestart: true,
       log_date_format : "YYYY-MM-DD HH:mm"
+    },
+    {
+      name: "bpjson-meetone",
+      script: 'index.ts',
+      env: {
+        NODEOS_ENDPOINT: "https://meetone.eosn.io",
+        BPJSON_ENDPOINT: "https://eosnation.io/meetone.json",
+        PRODUCER_ACCOUNT_NAME: "eosnation.m",
+        PERMISSION: "ops",
+      },
+      autorestart: true,
+      log_date_format : "YYYY-MM-DD HH:mm"
     }
   ]
 };
