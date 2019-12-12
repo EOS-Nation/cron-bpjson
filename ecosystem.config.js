@@ -61,6 +61,18 @@ module.exports = {
       log_date_format : "YYYY-MM-DD HH:mm"
     },
     {
+      name: "bpjson-waxtest",
+      script: 'index.ts',
+      env: {
+        NODEOS_ENDPOINT: "https://waxtest.eosn.io",
+        BPJSON_ENDPOINT: "https://eosnation.io/waxtest.json",
+        PRODUCER_ACCOUNT_NAME: "nation.wax",
+        PERMISSION: "ops",
+      },
+      autorestart: true,
+      log_date_format : "YYYY-MM-DD HH:mm"
+    },
+    {
       name: "bpjson-meetone",
       script: 'index.ts',
       env: {
