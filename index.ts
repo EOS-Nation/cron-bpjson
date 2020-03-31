@@ -18,19 +18,23 @@ async function main() {
 
     // Check if on-chain is different from website
     const producerjson = await getProducerJson(PRODUCER_ACCOUNT_NAME);
+    let hasChanged = true;
 
     if (producerjson) {
         console.log("comparing hashes", createHash(bpjson), createHash(producerjson));
         if (createHash(bpjson) === createHash(producerjson)) {
+            hasChanged = false;
             console.log(`[${PRODUCERJSON}] & [bp.json] hashes are the same, nothing to update`);
         }
     } else {
         console.log('first time publishing');
     }
 
-    // Push actions
-    const action = setProducerJson(PRODUCER_ACCOUNT_NAME, bpjson);
-    await transact([action]);
+    if (hasChanged) {
+        // Push actions
+        const action = setProducerJson(PRODUCER_ACCOUNT_NAME, bpjson);
+        await transact([action]);
+    }
 }
 
 new CronJob(CRON_TIME, async () => {
